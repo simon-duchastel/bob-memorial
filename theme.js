@@ -1,22 +1,19 @@
 (function() {
   const root = document.documentElement;
+  const mql = matchMedia('(prefers-color-scheme: dark)');
   const saved = localStorage.getItem('theme');
-  if (saved === 'dark') root.classList.add('dark');
-  else if (saved === 'light') root.classList.add('light');
 
-  function toggle() {
-    if (root.classList.contains('dark')) {
-      root.classList.remove('dark');
-      root.classList.add('light');
-      localStorage.setItem('theme', 'light');
-    } else if (root.classList.contains('light')) {
-      root.classList.remove('light');
-      localStorage.setItem('theme', 'auto');
-    } else {
-      root.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    }
+  function apply(t) {
+    root.classList.remove('dark', 'light');
+    if (t === 'dark') root.classList.add('dark');
+    else if (t === 'light') root.classList.add('light');
   }
 
-  document.getElementById('theme-toggle').addEventListener('click', toggle);
+  apply(saved || (mql.matches ? 'dark' : 'light'));
+
+  document.getElementById('theme-toggle').addEventListener('click', function() {
+    const next = root.classList.contains('dark') ? 'light' : 'dark';
+    localStorage.setItem('theme', next);
+    apply(next);
+  });
 })();
