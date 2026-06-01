@@ -11,6 +11,10 @@
 
   apply(saved || (mql.matches ? 'dark' : 'light'));
 
+  requestAnimationFrame(function() {
+    root.classList.add('theme-ready');
+  });
+
   document.getElementById('theme-toggle').addEventListener('click', function() {
     const next = root.classList.contains('dark') ? 'light' : 'dark';
     localStorage.setItem('theme', next);
