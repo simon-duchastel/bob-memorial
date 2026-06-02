@@ -176,7 +176,7 @@ figcaption {
 }
 
 .gallery img {
-  margin-bottom: 2rem;
+  margin: 0 auto 2rem;
 }
 
 a {
