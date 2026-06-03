@@ -190,3 +190,12 @@ footer {
   color: var(--muted);
   border-top: 1px solid var(--border);
 }
+
+footer a {
+  color: inherit;
+}
+
+footer .github-icon {
+  vertical-align: middle;
+  margin-right: 0.2em;
+}
