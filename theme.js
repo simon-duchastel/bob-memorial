@@ -13,7 +13,7 @@
 
   document.getElementById('theme-toggle').addEventListener('click', function() {
     const next = root.classList.contains('dark') ? 'light' : 'dark';
-    localStorage.setItem('theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
     apply(next);
   });
 })();
