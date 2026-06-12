@@ -43,8 +43,16 @@
     <h1>In Loving Memory of Bob</h1>
 
     <figure class="hero">
-      <img src="images/in-loving-memory.jpg" alt="Bob">
+      <label for="lb-hero" class="lightbox-trigger">
+        <img src="images/in-loving-memory.jpg" alt="Bob">
+      </label>
     </figure>
+
+    <input type="checkbox" id="lb-hero" hidden>
+    <label for="lb-hero" class="lightbox">
+      <span class="lightbox-close">&times;</span>
+      <img src="images/in-loving-memory.jpg" alt="Bob">
+    </label>
 
     <p>Bob was born May 5th, 2018 (Cinco de Mayo). For close to two years he was a stray in Queen Anne in Seattle before being adopted by Simon in January 2021.</p>
 
