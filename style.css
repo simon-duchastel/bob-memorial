@@ -89,6 +89,10 @@ nav a:hover {
   text-decoration: underline;
 }
 
+nav a[aria-current="page"] {
+  text-decoration: underline;
+}
+
 #theme-toggle {
   grid-column: 3;
   justify-self: end;
