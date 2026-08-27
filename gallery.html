@@ -109,7 +109,9 @@
   <script src="lightbox.js"></script>
   <script>
     var theme = document.getElementById('theme-toggle');
-    if (localStorage.getItem('theme') === 'dark') theme.checked = true;
+    var saved = localStorage.getItem('theme')
+      || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    theme.checked = saved === 'dark';
     theme.addEventListener('change', function() {
       localStorage.setItem('theme', theme.checked ? 'dark' : 'light');
     });
