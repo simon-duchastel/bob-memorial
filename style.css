@@ -11,22 +11,7 @@
   --lightbox-close: #fff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #1a1a1a;
-    --text: #d5d0c8;
-    --heading: #e5e2dc;
-    --muted: #999;
-    --nav: #aaa;
-    --border: #3a3530;
-    --link: #7aa8e0;
-    --nav-hover: #fff;
-    --lightbox-bg: rgba(0, 0, 0, 0.92);
-    --lightbox-close: #fff;
-  }
-}
-
-:root.dark {
+:root:has(#theme-toggle:checked) {
   --bg: #1a1a1a;
   --text: #d5d0c8;
   --heading: #e5e2dc;
@@ -36,19 +21,6 @@
   --link: #7aa8e0;
   --nav-hover: #fff;
   --lightbox-bg: rgba(0, 0, 0, 0.92);
-  --lightbox-close: #fff;
-}
-
-:root.light {
-  --bg: #fdfcfa;
-  --text: #333;
-  --heading: #222;
-  --muted: #666;
-  --nav: #555;
-  --border: #e5e2dc;
-  --link: #2c5aa0;
-  --nav-hover: #000;
-  --lightbox-bg: rgba(0, 0, 0, 0.72);
   --lightbox-close: #fff;
 }
 
@@ -93,7 +65,7 @@ nav a[aria-current="page"] {
   text-decoration: underline;
 }
 
-#theme-toggle {
+.theme-toggle {
   grid-column: 3;
   justify-self: end;
   position: relative;
@@ -106,7 +78,20 @@ nav a[aria-current="page"] {
   padding: 0;
 }
 
-#theme-toggle:hover {
+.theme-toggle input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.theme-toggle:has(input:focus-visible) {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+}
+
+.theme-toggle:hover {
   opacity: 0.9;
 }
 
@@ -121,40 +106,35 @@ nav a[aria-current="page"] {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-#theme-toggle svg {
-  position: absolute;
-  opacity: 0;
-  color: var(--text);
-}
-
-html:not(.dark) #theme-toggle .icon-sun {
-  opacity: 1;
-}
-
-html.dark #theme-toggle .icon-moon {
-  opacity: 1;
-}
-
-html.dark #theme-toggle {
-  background: #555;
-}
-
-html.theme-ready #theme-toggle {
-  transition: background 0.3s;
-}
-
-html.theme-ready #theme-toggle svg {
-  transition: opacity 0.2s;
-}
-
-html.theme-ready .switch-thumb {
   transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
-html.dark #theme-toggle .switch-thumb {
+:root:has(#theme-toggle:checked) .switch-thumb {
   transform: translateX(24px);
+}
+
+.theme-toggle svg {
+  position: absolute;
+  opacity: 0;
+  color: var(--text);
+  transition: opacity 0.2s;
+}
+
+.theme-toggle .icon-sun {
+  opacity: 1;
+}
+
+:root:has(#theme-toggle:checked) .theme-toggle .icon-moon {
+  opacity: 1;
+}
+
+:root:has(#theme-toggle:checked) .theme-toggle .icon-sun {
+  opacity: 0;
+}
+
+:root:has(#theme-toggle:checked) .theme-toggle {
+  background: #555;
+  transition: background 0.3s;
 }
 
 main {
