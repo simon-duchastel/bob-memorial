@@ -11,6 +11,7 @@
   --lightbox-close: #fff;
 }
 
+:root.theme-dark,
 :root:has(#theme-toggle:checked) {
   --bg: #1a1a1a;
   --text: #d5d0c8;
@@ -109,6 +110,7 @@ nav a[aria-current="page"] {
   transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
+:root.theme-dark .switch-thumb,
 :root:has(#theme-toggle:checked) .switch-thumb {
   transform: translateX(24px);
 }
@@ -124,14 +126,17 @@ nav a[aria-current="page"] {
   opacity: 1;
 }
 
+:root.theme-dark .theme-toggle .icon-moon,
 :root:has(#theme-toggle:checked) .theme-toggle .icon-moon {
   opacity: 1;
 }
 
+:root.theme-dark .theme-toggle .icon-sun,
 :root:has(#theme-toggle:checked) .theme-toggle .icon-sun {
   opacity: 0;
 }
 
+:root.theme-dark .theme-toggle,
 :root:has(#theme-toggle:checked) .theme-toggle {
   background: #555;
   transition: background 0.3s;
