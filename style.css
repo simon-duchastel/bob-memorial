@@ -11,6 +11,22 @@
   --lightbox-close: #fff;
 }
 
+/* Follow the OS color scheme unless an explicit choice was made */
+@media (prefers-color-scheme: dark) {
+  :root:not(.theme-light) {
+    --bg: #1a1a1a;
+    --text: #d5d0c8;
+    --heading: #e5e2dc;
+    --muted: #999;
+    --nav: #aaa;
+    --border: #3a3530;
+    --link: #7aa8e0;
+    --nav-hover: #fff;
+    --lightbox-bg: rgba(0, 0, 0, 0.92);
+    --lightbox-close: #fff;
+  }
+}
+
 :root.theme-dark,
 :root:has(#theme-toggle:checked) {
   --bg: #1a1a1a;
