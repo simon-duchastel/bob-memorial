@@ -25,6 +25,23 @@
     --lightbox-bg: rgba(0, 0, 0, 0.92);
     --lightbox-close: #fff;
   }
+
+  /* The switch follows the effective theme, not just the checkbox */
+  :root:not(.theme-light) .theme-toggle {
+    background: #555;
+  }
+
+  :root:not(.theme-light) .theme-toggle .icon-moon {
+    opacity: 1;
+  }
+
+  :root:not(.theme-light) .theme-toggle .icon-sun {
+    opacity: 0;
+  }
+
+  :root:not(.theme-light) .theme-toggle .switch-thumb {
+    transform: translateX(24px);
+  }
 }
 
 :root.theme-dark,
