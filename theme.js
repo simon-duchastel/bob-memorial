@@ -1,19 +1,13 @@
 (function() {
-  const root = document.documentElement;
-
-  function apply(t) {
-    root.classList.remove('dark', 'light');
-    if (t === 'dark') root.classList.add('dark');
-    else if (t === 'light') root.classList.add('light');
-  }
-
-  requestAnimationFrame(function() {
-    root.classList.add('theme-ready');
-  });
-
-  document.getElementById('theme-toggle').addEventListener('click', function() {
-    const next = root.classList.contains('dark') ? 'light' : 'dark';
-    try { localStorage.setItem('theme', next); } catch (e) {}
-    apply(next);
+  var themeState = localStorage.getItem('theme')
+    || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  if (themeState === 'dark') document.documentElement.classList.add('theme-dark');
+  document.addEventListener('DOMContentLoaded', function() {
+    var theme = document.getElementById('theme-toggle');
+    theme.checked = themeState === 'dark';
+    document.documentElement.classList.remove('theme-dark');
+    theme.addEventListener('change', function() {
+      localStorage.setItem('theme', theme.checked ? 'dark' : 'light');
+    });
   });
 })();
