@@ -107,5 +107,12 @@
     </a>
   </footer>
   <script src="lightbox.js"></script>
+  <script>
+    var theme = document.getElementById('theme-toggle');
+    if (localStorage.getItem('theme') === 'dark') theme.checked = true;
+    theme.addEventListener('change', function() {
+      localStorage.setItem('theme', theme.checked ? 'dark' : 'light');
+    });
+  </script>
 </body>
 </html>
