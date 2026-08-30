@@ -219,6 +219,30 @@ figcaption {
   margin: 0 auto 2rem;
 }
 
+/* Two columns of photos once the viewport is wide enough.
+   The wider layout gets a wider main so the photos use the
+   available width instead of hugging the reading column. */
+@media (min-width: 840px) {
+  .gallery-page {
+    max-width: 1200px;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2rem 1.5rem;
+  }
+
+  .gallery-grid .gallery {
+    margin: 0;
+  }
+
+  .gallery-grid .gallery img {
+    margin-bottom: 0;
+  }
+}
+
 a {
   color: var(--link);
 }
