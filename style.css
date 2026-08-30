@@ -219,6 +219,23 @@ figcaption {
   margin: 0 auto 2rem;
 }
 
+/* Two columns of photos once the viewport is wide enough */
+@media (min-width: 840px) {
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 1.5rem;
+  }
+
+  .gallery-grid .gallery {
+    margin: 0;
+  }
+
+  .gallery-grid .gallery img {
+    margin-bottom: 0;
+  }
+}
+
 a {
   color: var(--link);
 }
